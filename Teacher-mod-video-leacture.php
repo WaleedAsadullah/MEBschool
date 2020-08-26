@@ -76,7 +76,7 @@ include_once('session_end.php');
     Open Link in Popup
 </a> -->
                                      <div class="m-t-5 m-b-5" style="text-align: center" >
-                                         <a  href="admin-mod-student-addmission-form.php" > <button type="button" class="btn btn-primary btn w-md waves-effect waves-light"  >+ Add</button></a>
+                                         <a  href="#formadd" > <button type="button" class="btn btn-primary btn w-md waves-effect waves-light"  >+ Add</button></a>
                                         <a> <button type="button" class="btn btn-info btn w-md waves-effect waves-light" > Export </button></a>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@ include_once('session_end.php');
             </div>
 
             <!-- Form -->
-            <div class="content-page">
+            <div class="content-page" id="formadd">
                 <div class="content">
                     <div class="container">
                         <div class="row">

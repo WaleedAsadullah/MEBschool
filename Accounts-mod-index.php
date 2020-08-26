@@ -69,7 +69,8 @@ include_once('session_end.php');
 
                     <!--- Sidemenu -->
                     <?php 
-                            include_once("Accounts-mod-sidemenu.php")
+                   
+                    include_once("Accounts-mod-sidemenu.php");
                     ?>
 
                     <!-- Sidebar -->
@@ -162,13 +163,14 @@ include_once('session_end.php');
                         </div>
                     </div>
                 </div>
-            </div>
              <!-- footer -->
 
 
 
             <?php 
-                include_once("footer.php")
+            echo '<div style = "padding-top : 3em;" >';
+                include_once("footer.php");
+            echo '</div>';
             ?>
 
     </div>

@@ -134,7 +134,9 @@ include_once('session_end.php');
 
 
             <?php 
-                include_once("footer.php")
+            echo '<div style = "padding-top : 3em;" >';
+                include_once("footer.php");
+            echo '</div>';
             ?>
 
     </div>

@@ -179,10 +179,11 @@ if( $uploadedok) {
                                             $sql .= '\', CURRENT_TIMESTAMP, \''.$_REQUEST['class']. '\',\''.$_REQUEST['GR_No'].'\', \''.$_REQUEST['name_of_student']. '\', \''.$_REQUEST['father_name']. '\', \''.$_REQUEST['surname']. '\', \''.$_REQUEST['guardian_name']. '\', \''.$_REQUEST['relationship']. '\', \''.$_REQUEST['religion']. '\', \''.$_REQUEST['address']. '\', \''.$_REQUEST['phone']. '\', \''.$_REQUEST['cell_no']. '\', \''.$_REQUEST['e_mail']. '\', \''.$_REQUEST['ice_no']. '\', \''.$_REQUEST['occupation_of_father']. '\', \''.$_REQUEST['monthly_income']. '\', \''.$_REQUEST['cnic_guradian']. '\', \''.$_REQUEST['date_of_birth']. '\', \''.$_REQUEST['place_of_birth']. '\', \''.$_REQUEST['date_of_birth_words']. '\', \''.$_REQUEST['admission_saught']. '\', \''.$_REQUEST['admission_granted']. '\', \''.$_REQUEST['last_school_class']. '\', \''.$_REQUEST['profile_picture']. '\')';
                                             // echo $sql;
                                             insert_query($sql);
+
                                         }
 
                                     }
-                                    else echo "Image filee did not uplaod properly. Try again";
+                                    else echo "";
                                             // -------------------------
                                             ///edit code
                                             check_edit("ad_admission","addmission_id");
@@ -198,11 +199,15 @@ if( $uploadedok) {
 
                                             $sql = 'SELECT `addmission_id`"ID", `class` "Class", `GR_No` "Gr No.", `name_of_student`"Name Of Student", `father_name`"Father\'s Name", `surname`"Surname", `guardian_name`"Guardian Name", `relationship` "Relationship", `religion` "Religion", `address`"Address", `phone`"Phone", `cell_no`"Cell No.", `e_mail` "E-mail", `ice_no`"In case of Emergency", `occupation_of_father` "Occupation of Father", `monthly_income` "Monthly Income", `cnic_guradian`"CNIC Guardian", `date_of_birth`"Date of Birth", `place_of_birth`"Place of Birth", `date_of_birth_words` "Date of Birth (in words)", `admission_saught` "Admission saught for class", `admission_granted` "Admission granted for class", `last_school_class` "Last School and Class Attended " FROM `ad_admission`';
                                             display_query($sql);
+
+                                            
+
                                             // ------------------------------
                                             ?>
                                     <?php
 
                                     if (isset($_POST['submit'])){
+                                        if( $uploadedok) {
                                         $user = mysqli_real_escape_string(connect_db(), $_POST['name_of_student']);
                                         $e_mail = mysqli_real_escape_string(connect_db(), $_POST['e_mail']);
                                         $class = mysqli_real_escape_string(connect_db(), $_POST['class']);
@@ -237,7 +242,7 @@ if( $uploadedok) {
                                                     </script>';
                                                 }
                                         }
-                                    }
+                                    }}
 
 
                                     // ///edit code
@@ -280,10 +285,20 @@ if( $uploadedok) {
                             <div class="col-lg-12">
                                 <div class="card-box">
 
-                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px"> Admission Form </h4>
+                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px"> Admission Form</h4>
                                     
                                     <?php
+                                    $conn = connect_db();
+                                            $sql_gr = 'SELECT `addmission_id` FROM `ad_admission`';
+                                            $result_gr = mysqli_query($conn, $sql_gr); 
 
+                                            while($row_gr = mysqli_fetch_assoc($result_gr)){
+                                                
+                                                $gr_no[] = $row_gr['addmission_id'];}
+                                                $gr_no_create = max($gr_no) + 1;
+                                                echo $gr_no_create ;
+                                            
+                                                
                                         
                                     ?>
                                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data" >
@@ -305,7 +320,7 @@ if( $uploadedok) {
                                                                 <label for="G.RNo">G.R No.</label>
                                                                 <input type="text" name="GR_No" required
                                                                        placeholder="Enter G.R No." class="form-control" id="adG.RNo"
-                                                                       value="<?php if (isset($_REQUEST['GR_No'])) echo $_REQUEST['GR_No'];  ?>">
+                                                                       <?php if(isset($_REQUEST['GR_No']))echo'value="'.$_REQUEST['GR_No'].'" readonly';else echo'value="'.$gr_no_create.'" readonly'; ?>>
                                                             </div>
                                                         </div>
                                                         

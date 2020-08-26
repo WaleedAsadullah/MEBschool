@@ -39,8 +39,8 @@
         <div class="clearfix"></div>
         <div class="wrapper-page">
             <div class="text-center">
-                <a href="index.html" class="logo"><span>Admin<span>to</span></span></a>
-                <h5 class="text-muted m-t-0 font-600">Responsive Admin Dashboard</h5>
+                 <div><img src="assets/images/med-logo.png" width="40%"></div>
+                <a href="index.php" class="logo"><span>M.E.B<span> School</span></span></a>
             </div>
         	<div class="m-t-40 card-box">
                 <div class="text-center">
