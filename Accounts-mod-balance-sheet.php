@@ -61,12 +61,61 @@ include_once('session_end.php');
 
                     <!-- Sidebar -->
 
+<!-- date -->
+            <div class="content-page">
+                <div class="content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card-box">
+                                    <?php
 
+                                    if(isset($_REQUEST['submit'])){
+                                        $start = $_REQUEST['s_date'];
+                                        $end = $_REQUEST['e_date'];
+                                    }else{
+                                        $start = "2019-08-20";
+                                        $end = "2021-08-20";
+                                    }
+                                    ?>
+
+                                    <form action="Accounts-mod-balance-sheet.php" method="post">
+                                        <div class="row" >
+                                            <div class="col-lg-5" >
+                                                <div class="form-group">
+                                                    <label for="prID">Start Date</label>
+                                                    <input type="date" name="s_date" required=""  class="form-control" id="prID" value="<?php if(isset($_REQUEST['s_date'])) echo $_REQUEST['s_date'] ?>" >
+                                                </div>
+                                            </div>
+                                                
+                                            <div class="col-lg-5" >
+                                                <div class="form-group">
+                                                    <label for="prName">End Date</label>
+                                                    <input type="date" name="e_date" required=""  class="form-control" id="prID" value="<?php if(isset($_REQUEST['e_date'])) echo $_REQUEST['e_date'] ?>" >
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-2" style="margin-top: 2%" >       
+                                                <div class="form-group text-center" >
+                                                    <button type="submit" name="submit" class="btn btn-default waves-effect waves-light" >
+                                                        Submit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- date -->
 
             <!-- Income form end -->
             <!-- Income form -->
             <div class="content-page">
-                <div class="content">
+                <div class="">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
@@ -78,12 +127,12 @@ include_once('session_end.php');
                                             <thead>
                                                 <th>Type</th>
                                                 <th>Title</th>
-                                                <td>Total</td>
+                                                <th>Total</th>
                                             </thead>
                                             <tbody>
                                             <?php
                                                 $conn = connect_db();
-                                                $sql = 'SELECT `type`, `account_title`, SUM(`ac_asset_liab_amount`) FROM `ac_asset_liab` WHERE `type` = "Assets" AND `date_of_ac_asset_liab` <= "2021-08-20" AND `date_of_ac_asset_liab` >= "2019-08-20" GROUP BY `account_title`';
+                                                $sql = 'SELECT `type`, `account_title`, SUM(`ac_asset_liab_amount`) FROM `ac_asset_liab` WHERE `type` = "Assets" AND `date_of_ac_asset_liab` <= "'.$end.'" AND `date_of_ac_asset_liab` >= "'.$start.'" GROUP BY `account_title`';
                                                 $result = mysqli_query($conn,$sql);
                                                 while($row = mysqli_fetch_assoc($result)){
                                                     echo'<tr>
@@ -94,6 +143,19 @@ include_once('session_end.php');
                                             }
                                             ?>                                            
                                             </tbody>
+                                            <thead>
+                                            <?php
+                                                $conn2 = connect_db();
+                                                $sql2 = 'SELECT  SUM(`ac_asset_liab_amount`)  FROM `ac_asset_liab` WHERE `type` = "Assets" AND `date_of_ac_asset_liab` <= "'.$end.'" AND `date_of_ac_asset_liab` >= "'.$start.'"';
+                                                $result2 = mysqli_query($conn2,$sql2);
+                                                while($row2 = mysqli_fetch_assoc($result2)){
+                                                    echo'<tr>
+                                                        <th colspan=2 >Total</th>
+                                                        <td>'.$row2['SUM(`ac_asset_liab_amount`)'].'</td>
+                                                        </tr>';
+                                            }
+                                            ?>
+                                            </thead>
                                         </table>
                                     </div>
                                 </div>
@@ -116,12 +178,12 @@ include_once('session_end.php');
                                             <thead>
                                                 <th>Type</th>
                                                 <th>Title</th>
-                                                <td>Total</td>
+                                                <th>Total</th>
                                             </thead>
                                             <tbody>
                                             <?php
                                                 $conn = connect_db();
-                                                $sql = 'SELECT `type`, `account_title`, SUM(`ac_asset_liab_amount`) FROM `ac_asset_liab` WHERE `type` = "Liability" AND `date_of_ac_asset_liab` <= "2021-08-20" AND `date_of_ac_asset_liab` >= "2019-08-20" GROUP BY `account_title`';
+                                                $sql = 'SELECT `type`, `account_title`, SUM(`ac_asset_liab_amount`) FROM `ac_asset_liab` WHERE `type` = "Liability" AND `date_of_ac_asset_liab` <= "'.$end.'" AND `date_of_ac_asset_liab` >= "'.$start.'" GROUP BY `account_title`';
                                                 $result = mysqli_query($conn,$sql);
                                                 while($row = mysqli_fetch_assoc($result)){
                                                     echo'<tr>
@@ -132,6 +194,19 @@ include_once('session_end.php');
                                             }
                                             ?>                                            
                                             </tbody>
+                                            <thead>
+                                            <?php
+                                                $conn2 = connect_db();
+                                                $sql2 = 'SELECT  SUM(`ac_asset_liab_amount`)  FROM `ac_asset_liab` WHERE `type` = "Liability" AND `date_of_ac_asset_liab` <= "'.$end.'" AND `date_of_ac_asset_liab` >= "'.$start.'"';
+                                                $result2 = mysqli_query($conn2,$sql2);
+                                                while($row2 = mysqli_fetch_assoc($result2)){
+                                                    echo'<tr>
+                                                        <th colspan=2 >Total</th>
+                                                        <td>'.$row2['SUM(`ac_asset_liab_amount`)'].'</td>
+                                                        </tr>';
+                                            }
+                                            ?>
+                                            </thead>
                                         </table>
                                     </div>
                                 </div>
@@ -140,7 +215,57 @@ include_once('session_end.php');
                     </div>
                 </div>
             </div>
+<!-- Equity -->
+            <div class="content-page">
+                <div class="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card-box">
+                                    <h4 class="header-title m-t-0 m-b-30">Liabilities Statement</h4>
 
+                                    <div class="table-responsive">
+                                        <table class="tablesaw table m-b-0 tablesaw-columntoggle table-bordered">
+                                            <thead>
+                                                <th>Type</th>
+                                                <th>Title</th>
+                                                <th>Total</th>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                                $conn = connect_db();
+                                                $sql = 'SELECT `type`, `account_title`, SUM(`ac_asset_liab_amount`) FROM `ac_asset_liab` WHERE `type` = "Equity" AND `date_of_ac_asset_liab` <= "'.$end.'" AND `date_of_ac_asset_liab` >= "'.$start.'" GROUP BY `account_title`';
+                                                $result = mysqli_query($conn,$sql);
+                                                while($row = mysqli_fetch_assoc($result)){
+                                                    echo'<tr>
+                                                        <th>'.$row['type'].'</th>
+                                                        <td>'.$row['account_title'].'</td>
+                                                        <td>'.$row['SUM(`ac_asset_liab_amount`)'].'</td>
+                                                        </tr>';
+                                            }
+                                            ?>                                            
+                                            </tbody>
+                                            <thead>
+                                            <?php
+                                                $conn2 = connect_db();
+                                                $sql2 = 'SELECT  SUM(`ac_asset_liab_amount`)  FROM `ac_asset_liab` WHERE `type` = "Equity" AND `date_of_ac_asset_liab` <= "'.$end.'" AND `date_of_ac_asset_liab` >= "'.$start.'"';
+                                                $result2 = mysqli_query($conn2,$sql2);
+                                                while($row2 = mysqli_fetch_assoc($result2)){
+                                                    echo'<tr>
+                                                        <th colspan=2 >Total</th>
+                                                        <td>'.$row2['SUM(`ac_asset_liab_amount`)'].'</td>
+                                                        </tr>';
+                                            }
+                                            ?>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                  
 
 

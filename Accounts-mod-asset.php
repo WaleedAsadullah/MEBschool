@@ -138,6 +138,7 @@ include_once('session_end.php');
                                 <div class="card-box">
                                     <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px"> Asset Liability Form </h4>
                                     <br>
+                                    
                                     <form action="Accounts-mod-asset.php#formadd" method="post" id="submitted2">
                                         <div class="form-group">
                                             <label for="">Type</label>
@@ -149,6 +150,12 @@ include_once('session_end.php');
                                                 
                                             </select>
                                         </div>
+                                        <div class="form-group text-right m-b-0">
+                                                
+                                            <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
+                                                Submit
+                                            </button>
+                                        </div>
                                     </form>
 
 <?php if(isset($_REQUEST['settype'])){
@@ -159,7 +166,13 @@ include_once('session_end.php');
                                     if (isset($_REQUEST['settype']) ) echo '<input type="hidden" value="'.$_REQUEST['settype'].'" name="settype">';
                                         dropDownConditional2("Account ID","account2","account","acount_name","ac_receivable_chart_of_account",'WHERE `type` = "'.$settype.'"');
                                         
-                                   echo' </form>';
+                                   echo'<div class="form-group text-right m-b-0">
+                                                
+                                            <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
+                                                Submit
+                                            </button>
+                                        </div>
+                                   </form>';
                                } ?>
 <?php
 if(isset($_REQUEST['account2'])){

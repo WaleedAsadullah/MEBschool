@@ -1,3 +1,8 @@
+<?php  
+$title = $_SERVER['PHP_SELF'];
+$title_arr = explode("-",str_replace("school/","",$title));
+
+?>
 <title>M.E.B School</title>
 
 

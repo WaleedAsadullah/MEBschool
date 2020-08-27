@@ -76,7 +76,7 @@ include_once('session_end.php');
                             <!-- form -->
                                 <div class="col-lg-12">
                                     <div class="card-box">
-                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px"> School Leaving Certificate</h4>
+                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px;"> School Leaving Certificate</h4>
                                     <br>
                                     
 
@@ -133,7 +133,7 @@ include_once('session_end.php');
                             <div class="col-lg-12">
                                 <div class="card-box">
 
-                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px"> School Leaving Certificate Form </h4>
+                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px;"> School Leaving Certificate Form </h4>
                                     <br><form action="Admin-mod-school-leaving-certificate.php#formadd" method="post" id="submitted">
                                         <?php
                                         dropDownConditional2("Student ID","gr_num2","addmission_id","name_of_student","ad_admission",NULL);

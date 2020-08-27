@@ -77,6 +77,55 @@ include_once('session_end.php');
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card-box">
+                                    <?php
+
+                                    if(isset($_REQUEST['submit'])){
+                                        $start = $_REQUEST['s_date'];
+                                        $end = $_REQUEST['e_date'];
+                                    }else{
+                                        $start = "2019-08-20";
+                                        $end = "2021-08-20";
+                                    }
+                                    ?>
+
+                                    <form action="Accounts-mod-profit-and-loss.php" method="post">
+                                        <div class="row" >
+                                            <div class="col-lg-5" >
+                                                <div class="form-group">
+                                                    <label for="prID">Start Date</label>
+                                                    <input type="date" name="s_date" required=""  class="form-control" id="prID" value="<?php if(isset($_REQUEST['s_date'])) echo $_REQUEST['s_date'] ?>" >
+                                                </div>
+                                            </div>
+                                                
+                                            <div class="col-lg-5" >
+                                                <div class="form-group">
+                                                    <label for="prName">End Date</label>
+                                                    <input type="date" name="e_date" required=""  class="form-control" id="prID" value="<?php if(isset($_REQUEST['e_date'])) echo $_REQUEST['e_date'] ?>" >
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-2" style="margin-top: 2%" >       
+                                                <div class="form-group text-center" >
+                                                    <button type="submit" name="submit" class="btn btn-default waves-effect waves-light" >
+                                                        Submit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-page">
+                <div class="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card-box">
                                     <h4 class="header-title m-t-0 m-b-30">Expenditure Statement (Detailed)</h4>
 
                                     <div class="table-responsive">
@@ -84,12 +133,12 @@ include_once('session_end.php');
                                             <thead>
                                                 <th>Type</th>
                                                 <th>Title</th>
-                                                <td>Total</td>
+                                                <th>Total</th>
                                             </thead>
                                             <tbody>
                                             <?php
                                                 $conn = connect_db();
-                                                $sql = 'SELECT `type`, `account_title`, SUM(`exp_amount`) FROM `ac_rev_exp` WHERE `type` = "Revenue" AND `date_of_rev_exp` <= "2021-08-20" AND `date_of_rev_exp` >= "2019-08-20" GROUP BY `account_title`';
+                                                $sql = 'SELECT `type`, `account_title`, SUM(`exp_amount`) FROM `ac_rev_exp` WHERE `type` = "Revenue" AND `date_of_rev_exp` <= "'.$end.'" AND `date_of_rev_exp` >= "'.$start.'" GROUP BY `account_title`';
                                                 $result = mysqli_query($conn,$sql);
                                                 while($row = mysqli_fetch_assoc($result)){
                                                     echo'<tr>
@@ -100,6 +149,19 @@ include_once('session_end.php');
                                             }
                                             ?>                                            
                                             </tbody>
+                                            <thead>
+                                            <?php
+                                                $conn2 = connect_db();
+                                                $sql2 = 'SELECT  SUM(`exp_amount`) FROM `ac_rev_exp` WHERE `type` = "Revenue" AND `date_of_rev_exp` <= "'.$end.'" AND `date_of_rev_exp` >= "'.$start.'"';
+                                                $result2 = mysqli_query($conn2,$sql2);
+                                                while($row2 = mysqli_fetch_assoc($result2)){
+                                                    echo'<tr>
+                                                        <th colspan=2 >Total</th>
+                                                        <td>'.$row2['SUM(`exp_amount`)'].'</td>
+                                                        </tr>';
+                                            }
+                                            ?> 
+                                            </thaed>
                                         </table>
                                     </div>
                                 </div>
@@ -122,12 +184,12 @@ include_once('session_end.php');
                                             <thead>
                                                 <th>Type</th>
                                                 <th>Title</th>
-                                                <td>Total</td>
+                                                <th>Total</th>
                                             </thead>
                                             <tbody>
                                             <?php
                                                 $conn = connect_db();
-                                                $sql = 'SELECT `type`, `account_title`, SUM(`exp_amount`) FROM `ac_rev_exp` WHERE `type` = "Expenses" AND `date_of_rev_exp` <= "2021-08-20" AND `date_of_rev_exp` >= "2019-08-20" GROUP BY `account_title`';
+                                                $sql = 'SELECT `type`, `account_title`, SUM(`exp_amount`) FROM `ac_rev_exp` WHERE `type` = "Expenses" AND `date_of_rev_exp` <= "'.$end.'" AND `date_of_rev_exp` >= "'.$start.'" GROUP BY `account_title`';
                                                 $result = mysqli_query($conn,$sql);
                                                 while($row = mysqli_fetch_assoc($result)){
                                                     echo'<tr>
@@ -137,7 +199,19 @@ include_once('session_end.php');
                                                         </tr>';
                                             }
                                             ?>                                            
-                                            </tbody>
+                                            </tbody><thead>
+                                            <?php
+                                                $conn2 = connect_db();
+                                                $sql2 = 'SELECT  SUM(`exp_amount`) FROM `ac_rev_exp` WHERE `type` = "Expenses" AND `date_of_rev_exp` <= "'.$end.'" AND `date_of_rev_exp` >= "'.$start.'"';
+                                                $result2 = mysqli_query($conn2,$sql2);
+                                                while($row2 = mysqli_fetch_assoc($result2)){
+                                                    echo'<tr>
+                                                        <th colspan=2 >Total</th>
+                                                        <td>'.$row2['SUM(`exp_amount`)'].'</td>
+                                                        </tr>';
+                                            }
+                                            ?> 
+                                            </thaed>
                                         </table>
                                     </div>
                                 </div>

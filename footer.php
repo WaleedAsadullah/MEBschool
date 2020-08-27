@@ -3,7 +3,7 @@
                 </footer>
                 
                 <?php 
-                hasaccess();
+                // hasaccess();
                  ?>
 
 

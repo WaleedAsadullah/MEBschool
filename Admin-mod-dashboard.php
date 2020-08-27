@@ -61,19 +61,6 @@ include_once('session_end.php');
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="card-box">
-                                    <div class="dropdown pull-right">
-                                        <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
-                                            <i class="zmdi zmdi-more-vert"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
-
                                     <h4 class="header-title m-t-0 m-b-30">Multiple Statistics</h4>
 
                                     <div id="website-stats" style="height: 320px;" class="flot-chart"></div>
@@ -83,18 +70,6 @@ include_once('session_end.php');
 
                             <div class="col-lg-6">
                                 <div class="card-box">
-                                    <div class="dropdown pull-right">
-                                        <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="false">
-                                            <i class="zmdi zmdi-more-vert"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
 
                                     <h4 class="header-title m-t-0 m-b-30">Realtime Statistics</h4>
 
@@ -108,19 +83,6 @@ include_once('session_end.php');
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="card-box">
-                                    <div class="dropdown pull-right">
-                                        <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown"
-                                           aria-expanded="false">
-                                            <i class="zmdi zmdi-more-vert"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
 
                                     <h4 class="header-title m-t-0 m-b-30">Donut Pie</h4>
 
@@ -133,20 +95,6 @@ include_once('session_end.php');
 
                             <div class="col-lg-6">
                                 <div class="card-box">
-                                    <div class="dropdown pull-right">
-                                        <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown"
-                                           aria-expanded="false">
-                                            <i class="zmdi zmdi-more-vert"></i>
-                                        </a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
-
                                     <h4 class="header-title m-t-0 m-b-30">Pie Chart</h4>
 
                                     <div id="pie-chart">

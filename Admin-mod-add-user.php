@@ -78,7 +78,7 @@ include_once('session_end.php');
                             <!-- form -->
                                 <div class="col-lg-12">
                                     <div class="card-box">
-                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px; font-weight: 300"> UserS </h4>
+                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px;"> Users </h4>
 
                                     <div class="table-responsive">
                                         <table id="datatable" class="tablesaw table m-b-0 tablesaw-columntoggle table-bordered ">
@@ -158,7 +158,7 @@ include_once('session_end.php');
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6">
                                 <div class="card-box">
-                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px; font-weight: 300"> Add user</h4>
+                                    <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px;"> Add user</h4>
 
 
                                     <form action="Admin-mod-add-user.php" method="post" >

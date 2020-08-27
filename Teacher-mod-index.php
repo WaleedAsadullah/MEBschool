@@ -122,11 +122,6 @@ include_once('session_end.php');
                                                 </a>
                                             </span>
                                             <span>
-                                                <a href="Teacher-mod-forum.php" ><button class="btn btn-default waves-effect m-b-5 i"> <i  class="fa fa-wpforms m-r-5"></i> 
-                                                </button>
-                                                </a>
-                                            </span>
-                                            <span>
                                                 <a href="Teacher-mod-announcement.php" ><button class="btn btn-default waves-effect m-b-5 i"> <i  class="fa fa-comment m-r-5"></i> 
                                                 </button>
                                                 </a>

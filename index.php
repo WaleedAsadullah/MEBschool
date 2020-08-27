@@ -63,7 +63,6 @@ session_start();
         if($emai_count){
             $email_pass = mysqli_fetch_assoc($query);
             $db_pass =  $email_pass['pass']; 
-            $_SESSION['name'] = $email_pass['name'];
             $_SESSION['gr_no'] = $email_pass['gr_no'];
             $_SESSION['account'] = $email_pass['account'];
             $_SESSION['add_user_id'] = $email_pass['add_user_id'];
@@ -73,6 +72,9 @@ session_start();
             $pass_decode = password_verify($password, $db_pass);
 
             if($pass_decode){
+
+                $_SESSION['name'] = $email_pass['name'];
+
                 if($db_account == 'Students'){
                 ?>
                 <script>
@@ -119,12 +121,7 @@ session_start();
     ?>
 
         <div class="account-pages"></div>
-        <a href="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum."></a>
+        <a href=""></a>
         <div class="clearfix"></div>
         <div class="wrapper-page">
             <div class="text-center">

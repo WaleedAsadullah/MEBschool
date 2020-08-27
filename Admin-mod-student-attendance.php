@@ -162,10 +162,10 @@ include_once('session_end.php');
                                         ?>
                                         <div class="form-group text-right m-b-0">
                                                 
-                                                <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
-                                                    Submit
-                                                </button>
-                                            </div>
+                                            <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
+                                                Submit
+                                            </button>
+                                        </div>
                                     </form>
 
 <?php
@@ -200,11 +200,11 @@ if(isset($_REQUEST['gr_no2'])){
                                             <div class="form-group">
                                                 <label for="userName">Status</label>
                                                 <select type="text" name="status" parsley-trigger="change" required="" placeholder="Eligible or not" class="form-control" id="zaEligible">
-                                                    <option value="Present">Present</option>
-                                                    <option value="Absent">Absent</option>
-                                                    <option value="Late">Late</option>
-                                                    <option value="Excused">Excused</option>
-                                                    <option value=" Alerts on Absence">  Alerts on Absence</option>
+                                                    <option value="Present" <?php if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Present') echo "selected" ?>>Present</option>
+                                                    <option value="Absent" <?php if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Absent') echo "selected" ?>>Absent</option>
+                                                    <option value="Late" <?php if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Late') echo "selected" ?>>Late</option>
+                                                    <option value="Excused" <?php if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Excused') echo "selected" ?>>Excused</option>
+                                                    <option value="Alerts on Absence" <?php if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Alerts on Absence') echo "selected" ?>>Alerts on Absence</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

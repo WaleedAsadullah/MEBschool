@@ -2,8 +2,9 @@
 include_once('session_end.php');
 ?>
 <!DOCTYPE html>
-<htm>
+<html>
 <head>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
@@ -12,13 +13,13 @@ include_once('session_end.php');
         <link rel="shortcut icon" href="assets/images/favicon.png">
 
           <?php include_once("title.php") ?>
-
-        <!-- form Uploads -->
-        <link href="assets/plugins/fileuploads/css/dropify.min.css" rel="stylesheet" type="text/css" />
+                  <!--Chartist Chart CSS -->
+        <link rel="stylesheet" href="assets/plugins/chartist/dist/chartist.min.css">
 
         <!--Morris Chart CSS -->
         <link rel="stylesheet" href="assets/plugins/morris/morris.css">
-                <!-- DataTables -->
+
+        <!-- DataTables -->
         <link href="assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -44,17 +45,10 @@ include_once('session_end.php');
         <script src="assets/js/modernizr.min.js"></script>
 
         <style>
-            .img1 {
-                position: absolute;
-                left: 0px;
-                top: 0px;
-                z-index: 2;
-                margin-top: 12%;
-                margin-left: 28%;
-
-                }
+            th,td{
+                text-align: center;
+            }
         </style>
-
 </head>
 <body class="fixed-left">
     <div id="wrapper" class="enlarged">

@@ -153,6 +153,12 @@ include_once('session_end.php');
                                                 
                                             </select>
                                         </div>
+                                        <div class="form-group text-right m-b-0">
+                                                
+                                            <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
+                                                Submit
+                                            </button>
+                                        </div>
                                     </form>
 
 <?php if(isset($_REQUEST['settype'])){
@@ -164,7 +170,14 @@ include_once('session_end.php');
                                     if (isset($_REQUEST['settype']) ) echo '<input type="hidden" value="'.$_REQUEST['settype'].'" name="settype">';
                                         dropDownConditional2("Teacher ID","gr_number2","Teacher_records_id","name","ad_teacher_records",NULL);
                                         
-                                   echo' </form>';
+                                   echo'
+                                        <div class="form-group text-right m-b-0">
+                                                
+                                            <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
+                                                Submit
+                                            </button>
+                                        </div>
+                                   </form>';
                                }} ?>
 <?php
 if(isset($_REQUEST['gr_number2'])){

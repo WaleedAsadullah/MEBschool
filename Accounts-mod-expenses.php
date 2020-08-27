@@ -148,6 +148,12 @@ include_once('session_end.php');
                                                 
                                             </select>
                                         </div>
+                                        <div class="form-group text-right m-b-0">
+                                                
+                                            <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
+                                                Submit
+                                            </button>
+                                        </div>
                                     </form>
 
 <?php if(isset($_REQUEST['settype'])){
