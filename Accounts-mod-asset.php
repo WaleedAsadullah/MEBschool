@@ -162,7 +162,8 @@ include_once('session_end.php');
 
     $settype = $_REQUEST['settype'];
     echo '
-                                    <form action="Accounts-mod-asset.php#formadd" method="post" id="submitted">';
+                                    <form action="Accounts-mod-asset.php#formadd" method="post" id="submitted">
+                                    ';
                                     if (isset($_REQUEST['settype']) ) echo '<input type="hidden" value="'.$_REQUEST['settype'].'" name="settype">';
                                         dropDownConditional2("Account ID","account2","account","acount_name","ac_receivable_chart_of_account",'WHERE `type` = "'.$settype.'"');
                                         
@@ -172,7 +173,12 @@ include_once('session_end.php');
                                                 Submit
                                             </button>
                                         </div>
-                                   </form>';
+                                   </form>
+                                   <div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can\'t Find Account? <a href="Accounts-mod-chart-of-account.php" class="text-primary m-l-5"><b> Add a Account Here</b></a></p>
+                                        </div>
+                                    </div>';
                                } ?>
 <?php
 if(isset($_REQUEST['account2'])){

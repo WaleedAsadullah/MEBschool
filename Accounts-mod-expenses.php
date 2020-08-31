@@ -166,7 +166,11 @@ include_once('session_end.php');
                                         
                                    echo' 
                                    <div class="form-group text-right m-b-0">
-                                   <button type="submit" class="btn btn-default waves-effect waves-light m-l-5"> Submit</button></div></form>';
+                                   <button type="submit" class="btn btn-default waves-effect waves-light m-l-5"> Submit</button></div></form><div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can\'t Find Account? <a href="Accounts-mod-chart-of-account.php" class="text-primary m-l-5"><b> Add a Account Here</b></a></p>
+                                        </div>
+                                    </div>';
                                } ?>
 <?php
 if(isset($_REQUEST['account2'])){

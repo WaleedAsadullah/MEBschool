@@ -829,6 +829,4 @@ function dropDownConditional2($label,$name,$select,$select2,$from,$condition){
         ;
 }
 
-
-
 ?>

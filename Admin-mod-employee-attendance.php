@@ -90,7 +90,7 @@ include_once('session_end.php');
                                     <h4 class="header-title m-t-0 m-b-5" style="text-align: center; font-size: 22px; padding: 10px">Staff Attendance Sheet</h4>
 
                                     <div class="table-responsive">
-                                        <table id="datatable2" class="tablesaw table m-b-0 tablesaw-columntoggle table-bordered ">
+                                        <table id="datatable" class="tablesaw table m-b-0 tablesaw-columntoggle table-bordered ">
                                             <?php
                                             // -------------------------
                                             //echo "test";
@@ -154,6 +154,11 @@ include_once('session_end.php');
                                                 </button>
                                             </div>
                                     </form>
+                                    <div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can't Find Member? <a href="Admin-mod-employee-record.php" class="text-primary m-l-5"><b> Add a Member Here</b></a></p>
+                                        </div>
+                                    </div>
 
 
 <?php
@@ -167,7 +172,7 @@ if(isset($_REQUEST['id_num2'])){
     $value_name =  $row['name'];
 }
 ?>
-                                        <form action="Admin-mod-employee-attendance.php" method="post" id="datatable2">
+                                        <form action="Admin-mod-employee-attendance.php" method="post" >
 
                                             <div class="form-group">
                                                 <label for="zaStudentsName">Name </label>
@@ -244,7 +249,9 @@ if(isset($_REQUEST['id_num2'])){
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
         <?php include_once('script.php') ?>
-                <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+
+
+        <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="assets/plugins/datatables/dataTables.bootstrap.js"></script>
         <script src="assets/plugins/datatables/dataTables.buttons.min.js"></script>
         <script src="assets/plugins/datatables/buttons.bootstrap.min.js"></script>

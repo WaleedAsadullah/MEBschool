@@ -162,6 +162,11 @@ include_once('session_end.php');
                                             </button>
                                         </div>
                                     </form>
+                                    <div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can't Find Teacher? <a href="Admin-mod-teacher-records.php" class="text-primary m-l-5"><b> Add a Teacher Here</b></a></p>
+                                        </div>
+                                    </div>
 <?php
 if(isset($_REQUEST['id_num2'])){
     $conn = connect_db();

@@ -64,7 +64,7 @@ include_once('session_end.php');
 
                     <!--- Sidemenu -->
                     <?php 
-                            include_once("Accounts-mod-sidemenu.php")
+                            include_once("Admin-mod-sidemenu.php")
                     ?>
 
                     <!-- Sidebar -->

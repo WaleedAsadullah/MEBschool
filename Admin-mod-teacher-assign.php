@@ -140,12 +140,18 @@ include_once('session_end.php');
                                         <?php
                                         dropDownConditional2("Teacher ID","teacher_id2","Teacher_records_id","name","ad_teacher_records",NULL);
                                         ?>
+                                        
                                         <div class="form-group text-right m-b-0">
                                             <button type="submit" name="submit2" class="btn btn-default waves-effect waves-light m-l-5">
                                             Submit
                                             </button>
                                         </div>
                                     </form>
+                                    <div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can't Find Teacher? <a href="Admin-mod-teacher-records.php" class="text-primary m-l-5"><b> Add a Teacher Here</b></a></p>
+                                        </div>
+                                    </div>
 
 <?php
 if(isset($_REQUEST['teacher_id2'])){
@@ -175,10 +181,28 @@ if(isset($_REQUEST['teacher_id2'])){
                                         <?php
                                         dropDownSimple('Assigned Section','assign_section','section_name','ad_section',NULL);
 
+                                        echo'<div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can\'t Find Section? <a href="Admin-mod-section.php" class="text-primary m-l-5"><b> Add a Section Here</b></a></p>
+                                        </div>
+                                    </div>';
+
                                         dropDownSimple('Assigned Class','assign_class','class_name','ad_class',NULL);
+
+                                        echo'<div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can\'t Find Class? <a href="Admin-mod-class.php" class="text-primary m-l-5"><b> Add a Class Here</b></a></p>
+                                        </div>
+                                    </div>';
 
 
                                         dropDownSimple('Assigned Subject','assign_subject','subject_name','ad_subject',NULL);
+
+                                        echo'<div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can\'t Find Subject? <a href="Admin-mod-subject.php" class="text-primary m-l-5"><b> Add a Subject Here</b></a></p>
+                                        </div>
+                                    </div>';
                                         ?>
 
 

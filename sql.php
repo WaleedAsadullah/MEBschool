@@ -33,3 +33,6 @@ SELECT `date_event` FROM `ac_hall_booking` WHERE `date_event` <= "'.$p_date.'"
 
 <!-- total fee collection -->
 SELECT sum(`total`) FROM `ac_fee_module` WHERE `fee_month_name` = ".$pre_month."
+
+<!-- my attendance -->
+SELECT count(`status`) FROM `ad_std_attendance` WHERE `status` = "Present" AND `date` <= "'.$month.'" and `gr_no` = "'.$_SESSION['id'].'"

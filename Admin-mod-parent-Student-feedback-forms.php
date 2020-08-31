@@ -168,7 +168,12 @@ include_once('session_end.php');
                                             <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
                                             Submit
                                             </button>
-                                        </div></form>';
+                                        </div></form>
+                                        <div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can\'t Find Teacher? <a href="Admin-mod-teacher-records.php" class="text-primary m-l-5"><b> Add a Teacher Here</b></a></p>
+                                        </div>
+                                    </div>';
                                }} ?>
 <?php
 if(isset($_REQUEST['gr_number2'])){
@@ -196,7 +201,12 @@ if(isset($_REQUEST['gr_number2'])){
                                             <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
                                             Submit
                                             </button>
-                                        </div></form>';
+                                        </div></form>
+                                        <div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can\'t Find Member? <a href="Admin-mod-employee-record.php" class="text-primary m-l-5"><b> Add a Member Here</b></a></p>
+                                        </div>
+                                    </div>';
                                }}?>
 <?php
 if(isset($_REQUEST['gr_number2'])){
@@ -221,7 +231,13 @@ if(isset($_REQUEST['gr_number2'])){
                                             <button type="submit" class="btn btn-default waves-effect waves-light m-l-5">
                                             Submit
                                             </button>
-                                        </div></form>';
+                                        </div></form>
+                                        <div class="row">
+                                        <div class="col-sm-12 text-right">
+                                            <p class="text-muted">Can\'t Find Student? <a href="Admin-mod-admission-management.php" class="text-primary m-l-5"><b> Add a Student Here</b></a></p>
+                                        </div>
+                                    </div>
+';
                                }}?>
 <?php
 if(isset($_REQUEST['gr_number2'])){

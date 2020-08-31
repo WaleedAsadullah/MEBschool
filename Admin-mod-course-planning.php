@@ -72,9 +72,71 @@ include_once('session_end.php');
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card-box">
-                                     <div style="text-align: center" >
-                                         <a  href="#formadd" > <button type="button" class="btn btn-primary btn w-md waves-effect waves-light m-b-5"  >+ Add</button></a>
-                                        <a> <button type="button" class="btn btn-info btn w-md waves-effect waves-light m-b-5" > Export </button></a>
+<?php
+$con = connect_db();
+
+echo '
+            <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Choose File</h4>
+                        </div>
+                        <form action="" enctype="multipart/form-data" method="post">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="file" name="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-info btn w-md waves-effect waves-light" name="import"> Import </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>';
+
+if(isset($_POST["import"]) ){
+        
+$filename=$_FILES["file"]["tmp_name"];    
+ if($_FILES["file"]["size"] > 0)
+ {
+    $file = fopen($filename, "r");
+    
+      while (($getData = fgetcsv($file, 10000, ",")) !== FALSE)
+       {
+         $sql = 'INSERT INTO `ad_course_planning` (`course_planning_id`, `user_id`, `user_date`, `class`, `subject`, `date`, `title`, `details`) VALUES (NULL,\'';
+        $sql .= get_curr_user();
+        $sql .= '\', CURRENT_TIMESTAMP,"'.$getData[0].'","'.$getData[1].'","'.$getData[2].'","'.$getData[3].'","'.$getData[4].'")';
+        $result = mysqli_query($con, $sql);
+
+    // if(!isset($result))
+    // {
+    //   echo "<script type=\"text/javascript\">
+    //       alert(\"Invalid File:Please Upload CSV File.\");
+    //       </script>";    
+    // }
+    // else {
+    //     echo "<script type=\"text/javascript\">
+    //     alert(\"CSV File has been successfully Imported.\");
+    //   </script>";
+    // }
+       }
+  
+       fclose($file);  
+ }
+}
+?>
+                                     <div class="m-t-5 m-b-5" style="text-align: center" >
+                                         <a  href="#formadd" > <button  type="button" class="btn btn-primary btn w-md waves-effect waves-light"  >+ Add</button></a>
+                                        <a> <button type="button" class="btn btn-info btn w-md waves-effect waves-light" > Export </button></a>
+                                        <a><button type="button" class="btn btn-purple btn w-md waves-effect waves-light"  data-toggle="modal" data-target="#con-close-modal" > Import </button></a>
                                     </div>
                                 </div>
                             </div>
